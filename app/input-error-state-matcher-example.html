@@ -1,0 +1,18 @@
+<form class="example-form" [formGroup]="userAddressValidations">
+	<mat-form-field appearance="outline" class="col-sm-6">
+		<mat-label>10-digit Mobile Number</mat-label>
+		<input matInput formControlName="mobileNumber" maxlength="10" (keypress)=_keyPress($event)>
+		<mat-error *ngIf="userAddressValidations.get('mobileNumber').hasError('required')">
+			Please fill out this field.
+		</mat-error>
+		<mat-error *ngIf="userAddressValidations.get('mobileNumber').hasError('pattern')">
+			It is not a valid mobile number.
+		</mat-error>
+	</mat-form-field>
+
+</form>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
