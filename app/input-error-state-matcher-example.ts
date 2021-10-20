@@ -17,6 +17,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 })
 export class InputErrorStateMatcherExample {
   userAddressValidations: FormGroup;
+  userAddressPincodeValidations: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit() {
     this.userAddressValidations = this.formBuilder.group({
@@ -24,6 +25,9 @@ export class InputErrorStateMatcherExample {
         '',
         [Validators.required, Validators.pattern('[6-9]\\d{9}')],
       ],
+    });
+    this.userAddressPincodeValidations = this.formBuilder.group({
+      pincode: ['', [Validators.required, Validators.pattern('[1-9]\\d{5}')]], //number required to check
     });
   }
   _keyPress(event: any) {
